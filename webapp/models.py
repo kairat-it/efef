@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 
+from accounts.models import User
+
 
 class CreateUpdateAbstractModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
@@ -27,3 +29,12 @@ class Post(CreateUpdateAbstractModel):
         db_table = "posts"
         verbose_name = "Пост"
         verbose_name_plural = "Посты"
+
+
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='likes')
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='likes')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('user', 'post')
