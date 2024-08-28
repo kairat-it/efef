@@ -1,16 +1,10 @@
 from rest_framework import serializers
-from webapp.models import Post, Like
+from webapp.models import Post
 
 class PostSerializer(serializers.ModelSerializer):
-    likes_count = serializers.IntegerField(source='likes.count', read_only=True)
+    author = serializers.ReadOnlyField(source='author.username')
+    likes_count = serializers.IntegerField(source='like_users.count', read_only=True)
 
     class Meta:
         model = Post
-        fields = ['id', 'author', 'content', 'created_at', 'updated_at', 'likes_count']
-        read_only_fields = ['author']
-
-class LikeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Like
-        fields = ['id', 'user', 'post', 'created_at']
-        read_only_fields = ['user']
+        fields = ['id', 'image', 'content', 'author', 'created_at', 'updated_at', 'likes_count']
