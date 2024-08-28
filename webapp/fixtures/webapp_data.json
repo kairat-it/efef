@@ -1,0 +1,45 @@
+[
+{
+    "model": "webapp.post",
+    "pk": 1,
+    "fields": {
+        "created_at": "2024-08-28T18:55:46.124Z",
+        "updated_at": "2024-08-28T18:55:46.124Z",
+        "image": "posts/happy.jpeg",
+        "content": "privet",
+        "author": 1,
+        "like_users": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "webapp.post",
+    "pk": 2,
+    "fields": {
+        "created_at": "2024-08-28T18:56:59.395Z",
+        "updated_at": "2024-08-28T18:56:59.395Z",
+        "image": "posts/neutral.jpeg",
+        "content": "bla bla",
+        "author": 1,
+        "like_users": [
+            1,
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "webapp.post",
+    "pk": 3,
+    "fields": {
+        "created_at": "2024-08-28T22:35:39.916Z",
+        "updated_at": "2024-08-28T22:35:39.916Z",
+        "image": "posts/happy_JNNovmk.jpeg",
+        "content": "bjbjb",
+        "author": 3,
+        "like_users": []
+    }
+}
+]
